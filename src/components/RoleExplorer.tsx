@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   ArrowUpRight,
@@ -48,7 +47,7 @@ const roles: Role[] = [
     label: "Java & Backend",
     title: "Java & Backend Development",
     description:
-      "Expanding my backend engineering expertise through Java, Spring Boot, API development, and maintainable application architecture.",
+      "Academic experience in Java, Spring Boot, and backend development. Currently refreshing these foundations alongside my professional Salesforce work.",
     skills: [
       "Java",
       "Spring Boot",
@@ -58,7 +57,7 @@ const roles: Role[] = [
       "Git",
     ],
     highlights: [
-      "Object-oriented application design",
+      "Academic object-oriented application design",
       "Backend services and API development",
       "Testing and maintainable code practices",
     ],
@@ -68,7 +67,7 @@ const roles: Role[] = [
     label: "Full-Stack",
     title: "Full-Stack Development",
     description:
-      "Developing end-to-end applications with responsive interfaces, reusable components, and connected backend services.",
+      "Academic experience in full-stack applications, responsive interfaces, and backend integration. Currently refreshing these skills.",
     skills: [
       "React",
       "TypeScript",
@@ -79,7 +78,7 @@ const roles: Role[] = [
       "GitHub",
     ],
     highlights: [
-      "Responsive user interface development",
+      "Academic web application development",
       "Reusable frontend components",
       "Frontend and backend integration",
     ],
@@ -160,7 +159,7 @@ export default function RoleExplorer() {
           })}
         </div>
 
-        <div className="role-panel" key={selectedRole.id}>
+        <div className="role-panel" key={selectedRole.id} aria-live="polite" aria-atomic="true">
           <div className="role-panel-main">
             <div className="role-panel-icon">
               <ActiveIcon size={28} />
@@ -192,6 +191,12 @@ export default function RoleExplorer() {
 
             <a href="#projects" className="role-project-link">
               Explore projects <ArrowUpRight size={17} />
+            </a>
+            <a
+              href={`${import.meta.env.BASE_URL}${activeRole === "integration" ? "resume-integration.html" : "resume.html"}`}
+              className="role-project-link"
+            >
+              {activeRole === "integration" ? "Integration résumé" : "Salesforce résumé"} <ArrowUpRight size={17} />
             </a>
           </div>
         </div>

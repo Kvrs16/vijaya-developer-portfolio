@@ -1,0 +1,51 @@
+/* NAVIGATION */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(252, 251, 255, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #eeeaf5;
+}
+.navbar {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+.brand span {
+  color: var(--accent);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav-links > a {
+  font-size: 13px;
+  font-weight: 550;
+  color: #625d74;
+  transition: color 0.2s;
+}
+.nav-links > a:hover {
+  color: var(--accent);
+}
+.nav-links .nav-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 17px;
+  border-radius: 10px;
+  background: #eeeafb;
+  color: #715cc2;
+}
+.mobile-menu-button {
+  display: none;
+  border: 0;
+  background: transparent;
+}

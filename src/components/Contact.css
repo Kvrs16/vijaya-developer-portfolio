@@ -1,0 +1,31 @@
+/* CONTACT */
+.contact-section {
+  text-align: center;
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      #ece5ff,
+      transparent 65%
+    ),
+    var(--surface);
+}
+.contact-content {
+  max-width: 720px;
+  margin: auto;
+}
+.contact-content h2 {
+  font-size: clamp(35px, 6vw, 60px);
+  letter-spacing: -2.5px;
+  line-height: 1.2;
+}
+.contact-content h2 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.contact-content p {
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+.contact-actions {
+  justify-content: center;
+}

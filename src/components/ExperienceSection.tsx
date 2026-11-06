@@ -6,7 +6,7 @@ import {
   GitBranch,
   Workflow,
 } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { experience } from "../data/portfolio";
 import "./ExperienceSection.css";
 
@@ -28,20 +28,21 @@ const focusAreas = [
   {
     title: "Automation & AI",
     description:
-      "Working with Salesforce automation, intelligent workflows, and emerging AI platform capabilities.",
+      "Working with Salesforce automation, intelligent workflows, and end-to-end Agentforce service agents.",
     icon: GitBranch,
     tags: ["Automation", "Agentforce", "Einstein"],
   },
   {
     title: "Engineering & Reliability",
     description:
-      "Supporting maintainable implementations through debugging, testing, logging, and deployment practices.",
+      "Independently testing and deploying implementations through debugging, testing, logging, and deployment practices.",
     icon: Code2,
     tags: ["Testing", "Git", "Nebula Logger"],
   },
 ];
 
 export default function ExperienceSection() {
+  const reducedMotion = useReducedMotion();
   return (
     <section id="experience" className="section experience-section">
       <div className="container">
@@ -57,10 +58,10 @@ export default function ExperienceSection() {
         <div className="experience-layout">
           <motion.div
             className="experience-timeline"
-            initial={{ opacity: 0, y: 24 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: reducedMotion ? 0 : 0.5 }}
           >
             {experience.map((job) => (
               <article className="career-card" key={job.company}>
@@ -74,16 +75,25 @@ export default function ExperienceSection() {
 
                 <h3>{job.role}</h3>
                 <p className="career-company">{job.company}</p>
+                <p className="career-phase">{job.phase}</p>
 
                 <div className="career-divider" />
 
-                <p className="career-label">KEY RESPONSIBILITIES</p>
+                <p className="career-label">IMPLEMENTATION HIGHLIGHTS</p>
 
                 <ul className="career-highlights">
                   {job.highlights.map((highlight) => (
                     <li key={highlight}>{highlight}</li>
                   ))}
                 </ul>
+                <div className="experience-details">
+                  {job.details.map((detail) => (
+                    <details key={detail.title}>
+                      <summary>{detail.title}</summary>
+                      <p>{detail.description}</p>
+                    </details>
+                  ))}
+                </div>
               </article>
             ))}
           </motion.div>
@@ -96,12 +106,12 @@ export default function ExperienceSection() {
                 <motion.article
                   className="experience-focus-card"
                   key={area.title}
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={reducedMotion ? false : { opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 0.4,
-                    delay: index * 0.07,
+                    duration: reducedMotion ? 0 : 0.4,
+                    delay: reducedMotion ? 0 : index * 0.07,
                   }}
                 >
                   <div className="focus-card-top">

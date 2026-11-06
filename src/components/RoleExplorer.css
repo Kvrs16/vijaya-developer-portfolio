@@ -2,7 +2,7 @@
 
 .role-explorer {
 
-  background: #fcfbff;
+  background: var(--surface);
 
 }
 
@@ -60,13 +60,13 @@
 
 .role-tab.active {
 
-  background: #8975d5;
+  background: var(--accent);
 
-  border-color: #8975d5;
+  border-color: var(--accent);
 
   color: white;
 
-  box-shadow: 0 8px 22px #8975d526;
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent) 15%, transparent);
 
 }
 
@@ -112,7 +112,7 @@
 
   background: #f1edfb;
 
-  color: #8975d5;
+  color: var(--accent);
 
   margin-bottom: 28px;
 
@@ -256,6 +256,10 @@
 
   text-decoration: underline;
 
+}
+
+.role-project-link + .role-project-link {
+  margin-left: 18px;
 }
 
 @keyframes role-fade-in {

@@ -26,3 +26,7 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Local document-generation libraries and private résumé drafts
+.resume-tools/
+resume-drafts/

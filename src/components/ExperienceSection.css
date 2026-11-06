@@ -1,5 +1,5 @@
 .experience-section {
-  background: #f7f6fc;
+  background: var(--surface-alt);
 }
 
 .experience-layout {
@@ -22,7 +22,7 @@
   left: -7px;
   width: 12px;
   height: 12px;
-  border: 3px solid #8975d5;
+  border: 3px solid var(--accent);
   border-radius: 50%;
   background: #fff;
 }
@@ -52,7 +52,7 @@
   height: 49px;
   border-radius: 14px;
   background: #f0ebfc;
-  color: #8975d5;
+  color: var(--accent);
 }
 
 .career-period {
@@ -66,16 +66,23 @@
 
 .career-card h3 {
   margin: 0 0 8px;
-  color: #29263e;
+  color: var(--text);
   font-size: clamp(22px, 2.5vw, 28px);
   letter-spacing: -0.8px;
 }
 
 .career-company {
   margin: 0;
-  color: #8975d5;
+  color: var(--accent);
   font-size: 15px;
   font-weight: 650;
+}
+
+.career-phase {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.8;
 }
 
 .career-divider {
@@ -95,7 +102,7 @@
 .career-highlights {
   margin: 0;
   padding-left: 18px;
-  color: #706a7d;
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.9;
 }
@@ -151,14 +158,14 @@
 
 .experience-focus-card h4 {
   margin: 0 0 11px;
-  color: #29263e;
+  color: var(--text);
   font-size: 15px;
   font-weight: 700;
 }
 
 .experience-focus-card > p {
   margin: 0 0 20px;
-  color: #777184;
+  color: var(--text-muted);
   font-size: 12px;
   line-height: 1.8;
 }
@@ -208,3 +215,9 @@
     transition: none;
   }
 }
+
+.experience-details { margin-top: 24px; }
+.experience-details details { border-top: 1px solid var(--border); padding: 14px 0; }
+.experience-details summary { cursor: pointer; color: var(--accent); font-size: 14px; font-weight: 650; }
+.experience-details p { margin: 12px 0 0; color: var(--text-muted); font-size: 13px; line-height: 1.9; }
+.career-highlights { list-style: disc; }

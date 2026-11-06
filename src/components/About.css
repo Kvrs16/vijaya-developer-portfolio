@@ -1,0 +1,41 @@
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 65px;
+}
+.about-main p {
+  color: var(--text-muted);
+  line-height: 2;
+  margin: 0 0 22px;
+}
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 21px;
+  border-radius: 14px;
+  border: 1px solid #eeeaf6;
+  background: #f8f6fd;
+}
+.highlight-item svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.highlight-item strong,
+.highlight-item span {
+  display: block;
+}
+.highlight-item strong {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.highlight-item span {
+  color: #827c91;
+  font-size: 12px;
+}

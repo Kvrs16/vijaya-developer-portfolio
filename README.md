@@ -1,75 +1,143 @@
-# React + TypeScript + Vite
+# Vijaya Rani — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Deploy Portfolio](https://github.com/Kvrs16/vijaya-developer-portfolio/actions/workflows/deploy.yaml/badge.svg)](https://github.com/Kvrs16/vijaya-developer-portfolio/actions/workflows/deploy.yaml)
 
-Currently, two official plugins are available:
+A personal portfolio presenting my Salesforce development, MuleSoft integration, and automation experience as an Associate Technical Consultant at Blueflame Labs. Built with React, TypeScript, and Vite, and deployed to GitHub Pages through GitHub Actions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**[View portfolio](https://Kvrs16.github.io/vijaya-developer-portfolio/)** · **[Salesforce résumé](https://Kvrs16.github.io/vijaya-developer-portfolio/resume.html)** · **[Integration résumé](https://Kvrs16.github.io/vijaya-developer-portfolio/resume-integration.html)**
 
-## React Compiler
+## About the project
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The site brings together my professional background, implementation experience, technical skills, and role-specific résumés. Experience includes Apex territory-management workflows, LWC forms and quote builders, Stripe/PandaDoc/Clay/DocuSign integrations, MuleSoft APIs, Agentforce service automation, Experience Cloud access, Data Cloud mappings, and Marketing Cloud Advanced campaigns.
 
-## Expanding the ESLint configuration
+My official role is **Associate Technical Consultant, July 2025–present**. Initial training is distinguished from Salesforce and MuleSoft implementation work beginning in December 2025. Java, Spring Boot, and full-stack skills are identified as academic experience being refreshed. Project cards remain marked as planned or coming soon while those projects are being built.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Responsive single-page portfolio with mobile navigation and section anchors.
+- Experience overview with expandable implementation details, covering independent delivery and collaborative testing/troubleshooting.
+- Interactive Salesforce, Java/backend, full-stack, and integration specialization panels.
+- Technical skills grouped by area, with academic experience labelled separately.
+- Category filters for project cards.
+- Two résumé versions: Salesforce Developer and Salesforce Integration / MuleSoft Developer.
+- Dedicated résumé pages with role switching, grouped technical skills, contact links, and PDF/Word downloads.
+- Single-column, selectable-text résumé PDFs and editable DOCX files; print-specific web styling.
+- Keyboard skip link, visible focus indicators, Escape-to-close mobile navigation, anchor offsets, and reduced-motion support.
+- Custom VR favicon, descriptive page metadata, and social-sharing text.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Technology
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Area | Tools |
+| --- | --- |
+| Application | React 19, TypeScript with strict checks |
+| Build tooling | Vite 8, npm |
+| Styling | Component-specific CSS, shared design variables, Tailwind CSS 4 integration |
+| Animation and icons | Motion, Lucide React, React Icons |
+| Code quality | ESLint, TypeScript compiler |
+| Hosting | GitHub Pages via GitHub Actions |
+| Résumé generation | Python, ReportLab, python-docx, pypdf; generated files committed for deployment |
 
+## Run locally
+
+Use **Node.js 22**, matching the deployment workflow.
+
+```sh
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Open the local URL printed by Vite. No backend, database, or environment secrets are required.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run lint` | Check React and TypeScript source with ESLint |
+| `npm run build` | Run strict TypeScript checks and build into `dist/` |
+| `npm run preview` | Serve the production build locally |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project structure
 
+```text
+.github/workflows/deploy.yaml   GitHub Pages build and deployment
+public/
+  favicon.svg                  Custom VR favicon
+  resume.html                  Salesforce Developer résumé page
+  resume-integration.html      Integration / MuleSoft résumé page
+  resumes/                     Downloadable PDF and DOCX versions
+scripts/
+  build-resumes.py             Shared résumé content and document generator
+  resume-requirements.txt      Python document-generation dependencies
+src/
+  App.tsx                      Page composition and motion preferences
+  main.tsx                     Application entry and stylesheet ordering
+  components/                  Section components and their CSS files
+  data/portfolio.ts            Profile, experience, skills, and projects
+  index.css                    Design tokens and shared/accessibility styles
+  styles/responsive.css        Shared responsive and reduced-motion overrides
+index.html                     Page title, description, and social metadata
+vite.config.ts                 Vite plugins and GitHub Pages base path
 ```
+
+## Updating content
+
+Edit `src/data/portfolio.ts` for profile text, experience highlights, detailed implementations, skills, and project entries. Update section-specific interfaces and styles in `src/components/`. Use `src/index.css` for shared colors, spacing, buttons, tags, and focus styles.
+
+Résumé summaries, grouped skills, selected experience bullets, and presentation are maintained in `scripts/build-resumes.py`. Each role uses the same verified employment history but a different emphasis. Update both the portfolio data and résumé source when shared facts change.
+
+## Regenerating résumés
+
+The normal website build **does not require Python**. Generated HTML, PDF, and DOCX files live in `public/` and are copied into `dist/` by Vite.
+
+To regenerate documents on Windows, install the separate document tools:
+
+```powershell
+python -m pip install --target .resume-tools -r scripts/resume-requirements.txt
+```
+
+The generator uses Arial font files from `C:/Windows/Fonts`. Create an ignored `resume-drafts/profile.json` containing your own details:
+
+```json
+{
+  "email": "your-email@example.com",
+  "phone": "+91 YOUR_NUMBER",
+  "linkedin": "https://www.linkedin.com/in/your-profile",
+  "employment_heading": "Your official title | Company | Start date - Present",
+  "public_contacts": false
+}
+```
+
+```powershell
+# Generate private review copies only
+python scripts/build-resumes.py
+
+# Refresh website pages and downloadable documents
+python scripts/build-resumes.py --update-public
+```
+
+`.resume-tools/` and `resume-drafts/` are ignored by Git. The current website includes the owner's approved email and phone number. Set `public_contacts` deliberately when regenerating for another profile.
+
+The generator checks that each PDF is one page and that core content extracts as text. Inspect the generated layout after changing content; Word pagination may vary by application. No ATS score is claimed: job-description matching must be assessed for the specific application.
+
+## GitHub Pages deployment
+
+The site uses **GitHub Actions**, configured in `.github/workflows/deploy.yaml`. A push to `main`, or a manual workflow run, performs:
+
+1. Check out the repository and configure Node.js 22 with npm caching.
+2. Install locked dependencies with `npm ci`.
+3. Run ESLint and the TypeScript/Vite production build.
+4. Upload `dist/` as the Pages artifact.
+5. Deploy the artifact using the GitHub Pages environment.
+
+In repository **Settings → Pages**, the source should be **GitHub Actions**. Review the [deployment workflow runs](https://github.com/Kvrs16/vijaya-developer-portfolio/actions/workflows/deploy.yaml) for the result and deployed URL.
+
+**Local edits reach the live website only after they are committed and pushed to `main` and the deployment succeeds.** This includes regenerated résumé HTML, PDF, and Word files. A manual workflow run builds the selected remote revision; it does not upload uncommitted local changes.
+
+Vite's base path is `/vijaya-developer-portfolio/`. Change `base` in `vite.config.ts` if the repository name or hosting path changes. React links to public files use `import.meta.env.BASE_URL`; the HTML entry uses `%BASE_URL%`. Résumé pages use relative links so downloads work under the repository path.
+
+## Validation
+
+Before pushing, run `npm run lint` and `npm run build`. After résumé edits, regenerate the files and check PDF reading order, skills, contact information, page count, and download links. For interface changes, check mobile layouts, keyboard navigation, and reduced-motion behavior.
+
+## Contact
+
+[GitHub](https://github.com/Kvrs16) · [LinkedIn](https://in.linkedin.com/in/vijaya-rani-7k111)

@@ -1,0 +1,56 @@
+import "./About.css";
+import { Cloud, Code2, Sparkles } from "lucide-react";
+import { profile } from "../data/portfolio";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
+export default function About() {
+  return (
+    <section id="about" className="section">
+      <div className="container">
+        <Reveal>
+          <SectionHeading
+            eyebrow="01 / ABOUT ME"
+            title="More than just code."
+            description="Curiosity, engineering, and a drive to build meaningful solutions."
+          />
+
+          <div className="about-grid">
+            <div className="about-main">
+              <p>{profile.about}</p>
+              <p>
+                My professional work spans Salesforce customization,
+                integrations, automation, and cloud technologies.
+                My Java, Spring Boot, and full-stack experience comes from
+                college work, and I am currently refreshing those skills.
+              </p>
+            </div>
+
+            <div className="about-highlights">
+              <div className="highlight-item">
+                <Cloud size={23} />
+                <div>
+                  <strong>Enterprise Platforms</strong>
+                  <span>Salesforce and multi-cloud solutions</span>
+                </div>
+              </div>
+              <div className="highlight-item">
+                <Code2 size={23} />
+                <div>
+                  <strong>Software Engineering</strong>
+                  <span>Backend, frontend, and APIs</span>
+                </div>
+              </div>
+              <div className="highlight-item">
+                <Sparkles size={23} />
+                <div>
+                  <strong>Automation & Innovation</strong>
+                  <span>Intelligent workflows and integrations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
