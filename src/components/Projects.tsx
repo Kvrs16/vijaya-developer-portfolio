@@ -1,6 +1,6 @@
 import "./Projects.css";
 import { useState } from "react";
-import { Code2 } from "lucide-react";
+import { ArrowUpRight, Code2 } from "lucide-react";
 import { projects } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
@@ -20,8 +20,8 @@ export default function Projects() {
         <Reveal>
           <SectionHeading
             eyebrow="05 / SELECTED WORK"
-            title="What's in the making."
-            description="I'm developing new engineering projects. Detailed case studies, architecture diagrams, and source code will be added as they are completed."
+            title="Projects I'm building."
+            description="Explore the Revenue Hub implementation, its architecture, and source code, alongside the applications planned next."
           />
 
           <div className="filter-bar" aria-label="Filter projects">
@@ -58,6 +58,19 @@ export default function Projects() {
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
 
+                  {project.highlights && (
+                    <details className="project-details">
+                      <summary>Implementation details</summary>
+                      <ul>
+                        {project.highlights.map((highlight) => (
+                          <li key={highlight}>{highlight}</li>
+                        ))}
+                      </ul>
+                    </details>
+                  )}
+
+                  {project.scope && <p className="project-scope">{project.scope}</p>}
+
                   <div className="skill-tags">
                     {project.technologies.map((tech) => (
                       <span className="skill-tag" key={tech}>
@@ -65,6 +78,20 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {project.repository && (
+                    <div className="project-links" aria-label={`${project.title} resources`}>
+                      <a href={project.repository} target="_blank" rel="noopener noreferrer">
+                        Source code <ArrowUpRight size={15} aria-hidden="true" />
+                      </a>
+                      {project.architecture && (
+                        <a href={project.architecture} target="_blank" rel="noopener noreferrer">Architecture</a>
+                      )}
+                      {project.deploymentGuide && (
+                        <a href={project.deploymentGuide} target="_blank" rel="noopener noreferrer">Setup guide</a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </article>
             ))}

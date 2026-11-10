@@ -73,3 +73,13 @@
 .project-body .skill-tags {
   margin-top: 20px;
 }
+
+.project-details { margin-top: 18px; font-size: 13px; }
+.project-details summary { cursor: pointer; color: var(--accent); font-weight: 650; }
+.project-details ul { list-style: disc; padding-left: 20px; color: var(--text-muted); line-height: 1.8; }
+.project-details li { margin-top: 9px; }
+.project-body .project-scope { min-height: 0; margin-top: 18px; padding: 12px 14px; background: var(--surface-alt); border-left: 3px solid var(--accent); border-radius: 4px; }
+.project-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border); }
+.project-links a { display: inline-flex; align-items: center; gap: 5px; color: var(--accent); font-size: 12px; font-weight: 650; }
+.project-links a:hover { text-decoration: underline; }
+.project-status { white-space: normal; text-align: right; }

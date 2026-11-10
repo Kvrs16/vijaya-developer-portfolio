@@ -112,14 +112,36 @@ export const skillGroups: { title: string; context?: string; skills: string[] }[
   }
 ];
 
-export const projects = [
+export interface PortfolioProject {
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  status: string;
+  highlights?: string[];
+  scope?: string;
+  repository?: string;
+  architecture?: string;
+  deploymentGuide?: string;
+}
+
+export const projects: PortfolioProject[] = [
   {
     title: "Enterprise Revenue & Integration Hub",
     category: "Salesforce",
     description:
-      "A Salesforce engineering project focused on secure integrations, revenue workflows, and document automation.",
-    technologies: ["Apex", "LWC", "REST APIs"],
-    status: "Coming Soon"
+      "A Salesforce workspace for approved-Quote payment and document requests, with asynchronous processing, integration monitoring, and controlled retries.",
+    technologies: ["Apex", "LWC", "Queueable Apex", "Salesforce DX", "Jest"],
+    status: "Mock integration demo",
+    highlights: [
+      "Permission-gated request services validate Quote eligibility and derive payment amounts server-side.",
+      "Logical payment keys prevent duplicate full-Quote payment requests; Queueable workers record integration attempts and outcomes.",
+      "A Lightning workspace displays recent jobs and supports authorized retries, with bounded attempts and dead-letter handling."
+    ],
+    scope: "The implemented baseline uses deterministic mock providers. It does not process real payments or generate provider documents; Stripe and PandaDoc adapters are future work.",
+    repository: "https://github.com/Kvrs16/salesforce-enterprise-revenue-hub",
+    architecture: "https://github.com/Kvrs16/salesforce-enterprise-revenue-hub/blob/main/docs/architecture.md",
+    deploymentGuide: "https://github.com/Kvrs16/salesforce-enterprise-revenue-hub/blob/main/docs/deployment-guide.md"
   },
   {
     title: "Java Backend Application",
