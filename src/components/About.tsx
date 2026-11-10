@@ -10,8 +10,8 @@ export default function About() {
         <Reveal>
           <SectionHeading
             eyebrow="01 / ABOUT ME"
-            title="More than just code."
-            description="Curiosity, engineering, and a drive to build meaningful solutions."
+            title="Following the problem, end to end."
+            description="Interfaces, automation, integrations—and the details between them."
           />
 
           <div className="about-grid">

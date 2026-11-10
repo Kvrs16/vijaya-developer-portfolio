@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="780" viewBox="0 0 700 780" fill="none">
+<defs>
+ <linearGradient id="sky" x2="700" y2="780" gradientUnits="userSpaceOnUse"><stop stop-color="#fde6f4"/><stop offset=".5" stop-color="#e2d5ff"/><stop offset="1" stop-color="#9ea4de"/></linearGradient>
+ <linearGradient id="glass" x2="0" y2="680" gradientUnits="userSpaceOnUse"><stop stop-color="#fff1e8"/><stop offset=".55" stop-color="#edb9d8"/><stop offset="1" stop-color="#a39dd8"/></linearGradient>
+ <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#795899" opacity=".12"/></pattern>
+</defs>
+<path fill="url(#sky)" d="M0 0h700v780H0z"/><path fill="url(#dots)" d="M0 0h700v780H0z"/>
+<path d="M335 660V315a150 150 0 0 1 300 0v345Z" fill="url(#glass)" stroke="#9177b3" stroke-width="7"/>
+<path d="M485 168v492M337 355h296M337 505h296" stroke="#a78abb" stroke-width="5"/>
+<circle cx="550" cy="285" r="39" fill="#fff7db"/>
+<g fill="#fff8f1"><path d="m594 385 5 15 15 5-15 5-5 15-5-15-15-5 15-5z"/><path d="m389 273 3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/><circle cx="572" cy="451" r="3"/><circle cx="430" cy="410" r="3"/></g>
+<path d="M0 625q160-85 350-15t350-10v180H0Z" fill="#c1b1dc"/>
+<path d="M0 675q150-58 330-20t370-20v145H0Z" fill="#968cbf"/>
+<!-- Original illustrated reading scene: a reader, an open book, and a companion cat. -->
+<path d="M65 665c-4-105 26-172 101-172 82 0 113 61 121 172" fill="#f5c8db" stroke="#765c8f" stroke-width="3"/>
+<path d="M131 501v-47h70v50l-35 29Z" fill="#ffe4da" stroke="#765c8f" stroke-width="3"/>
+<path d="M91 441c-24-113 26-161 85-158 72 4 100 68 78 160l-28 81-24-59-78 3-19 53Z" fill="#554567" stroke="#765c8f" stroke-width="3"/>
+<ellipse cx="171" cy="398" rx="62" ry="77" fill="#ffe7dd" stroke="#765c8f" stroke-width="3"/>
+<path d="M107 388c37-16 56-50 61-72 10 36 30 62 67 77l-9-64-55-31-56 31Z" fill="#554567"/>
+<path d="M130 412q12 10 25 0m34 0q12 10 25 0" stroke="#685276" stroke-width="4" stroke-linecap="round"/>
+<path d="M162 443q10 8 20 0" stroke="#bd7792" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="131" cy="433" rx="13" ry="6" fill="#edb0c4" opacity=".6"/><ellipse cx="210" cy="433" rx="13" ry="6" fill="#edb0c4" opacity=".6"/>
+<path d="m107 549 71 29 80-28-13 91-67 24-65-26Z" fill="#fff3da" stroke="#856b95" stroke-width="3"/>
+<path d="M178 578v87m-57-96 42 17m-40-4 39 16m32-10 43-17m-44 30 41-16" stroke="#bd9cad" stroke-width="2"/>
+<path d="M78 586q-8 34 39 39m151-39q10 35-20 43" stroke="#765c8f" stroke-width="3" stroke-linecap="round"/>
+<path d="M77 587q-6 17 13 22l20 6m153-25q2 12-15 22" stroke="#ffe4da" stroke-width="15" stroke-linecap="round"/>
+<!-- Cat perched on a stack of storybooks. -->
+<g stroke="#78628e" stroke-width="3"><rect x="394" y="629" width="236" height="29" rx="5" fill="#f7c6d7"/><rect x="418" y="598" width="192" height="30" rx="5" fill="#d5d0f6"/><rect x="402" y="572" width="218" height="26" rx="5" fill="#fff0d8"/>
+<path d="M459 570c-20-59-2-86 15-93l-5-36 35 18q24-4 42 4l29-20-3 42c32 29 24 64-3 85Z" fill="#faf0e7"/><path d="M480 508q8 7 16 0m34 0q8 7 16 0m-36 14 5 5 5-5m-34 9-20 3m67-3 23 3" stroke-linecap="round"/>
+<path d="M569 565q58 13 58-24" stroke="#faf0e7" stroke-width="17" stroke-linecap="round"/></g>
+<path d="M0 662h700v23H0z" fill="#7c679c"/><path d="M0 684h700v96H0z" fill="#b8a5cf"/>
+<g fill="#fff6ee" opacity=".9"><path d="m62 297 4 12 12 4-12 4-4 12-4-12-12-4 12-4Z"/><path d="m293 398 5 14 14 5-14 5-5 14-5-14-14-5 14-5Z"/><path d="M301 480c-11-14-26 1-11 12l11 8 12-9c15-13-2-24-12-11Z"/></g>
+</svg>

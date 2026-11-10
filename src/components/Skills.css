@@ -5,9 +5,9 @@
   gap: 20px;
 }
 .skill-card {
-  background: white;
+  background: var(--paper);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 4px;
   transition: transform 0.25s, box-shadow 0.25s;
 }
 .skill-card {

@@ -2,7 +2,7 @@ import "./Navbar.css";
 import { useRef, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { profile } from "../data/portfolio";
-const navItems = ["About", "Experience", "Expertise", "Skills", "Projects", "Contact"];
+const navItems = ["About", "Experience", "Expertise", "Skills", "Projects", "Reading", "Contact"];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
@@ -11,7 +11,7 @@ export default function Navbar() {
     <header className="site-header">
       <nav className="container navbar" aria-label="Main navigation" onKeyDown={(event) => { if (event.key === "Escape" && open) { setOpen(false); menuButton.current?.focus(); } }}>
         <a href="#home" className="brand">
-          VR<span>.</span>
+          Vijaya<span> / code & chapters</span>
         </a>
 
         <button

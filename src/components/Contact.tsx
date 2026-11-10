@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="container">
         <Reveal>
           <div className="contact-content">
-            <span className="eyebrow">06 / LET'S CONNECT</span>
+            <span className="eyebrow">07 / LET'S CONNECT</span>
             <h2>
               Let's build something <em>meaningful.</em>
             </h2>

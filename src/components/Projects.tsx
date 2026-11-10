@@ -1,9 +1,22 @@
 import "./Projects.css";
 import { useState } from "react";
-import { ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { projectCategories, projects } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+function ProjectPreview({ title, category, planned }: { title: string; category: string; planned: boolean }) {
+  const stages = title.includes("ReliableJobs") ? ["Submit job", "Queue", "Worker", "Result"]
+    : category === "Salesforce" ? ["Opportunity", "Quote", "Approval", "Revenue"]
+    : category === "Agentforce" ? ["Question", "Verify", "Route", "Resolve"]
+    : category === "MuleSoft" ? ["Appointment", "Mule API", "Calendar"]
+    : category === "Agentforce + MuleSoft" ? ["Ask", "Agent", "Mule API", "Order"]
+    : ["Interface", "API", "Database"];
+  return <div className={`project-art ${category === "Java" ? "project-art-teal" : ""}`}>
+    <span className="preview-label">{planned ? "PROPOSED WORKFLOW" : "PROJECT WORKFLOW"}</span>
+    <div className="preview-flow">{stages.map((stage, index) => <span className="preview-step" key={stage}><span>{stage}</span>{index < stages.length - 1 && <ArrowRight size={13} aria-hidden="true" />}</span>)}</div>
+    <span className="preview-caption">{title.includes("ReliableJobs") ? "Background work, with a lifecycle you can follow." : category === "Salesforce" ? "Connecting the steps of a sales workflow." : planned ? "An idea on the workbench. Implementation ahead." : "From an action to a connected outcome."}</span>
+  </div>;
+}
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
 
@@ -19,7 +32,7 @@ export default function Projects() {
         <Reveal>
           <SectionHeading
             eyebrow="05 / SELECTED WORK"
-            title="Projects I'm building."
+            title="From the workbench."
             description="Explore Revenue Hub and ReliableJobs, plus planned Agentforce, MuleSoft, and combined integration projects."
           />
 
@@ -40,11 +53,9 @@ export default function Projects() {
           </div>
 
           <div className="projects-grid">
-            {visibleProjects.map((project, index) => (
+            {visibleProjects.map((project) => (
               <article className="project-card" key={project.title}>
-                <div className={`project-art art-${index % 4}`}>
-                  <Code2 size={40} strokeWidth={1.3} />
-                </div>
+                <ProjectPreview title={project.title} category={project.category} planned={project.status.toLowerCase().includes("planned")} />
 
                 <div className="project-body">
                   <div className="project-meta">

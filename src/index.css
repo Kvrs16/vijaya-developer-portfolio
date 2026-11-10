@@ -1,16 +1,19 @@
 @import "tailwindcss";
 :root {
-  --accent: #7159bb;
-  --text: #29263e;
-  --text-muted: #706a7d;
-  --surface: #fcfbff;
-  --surface-alt: #f7f6fc;
-  --border: #ece8f5;
-  --section-space: 110px;
+  --accent: #b02d67;
+  --text: #302349;
+  --text-muted: #665579;
+  --surface: #fff8fc;
+  --surface-alt: #f2e8ff;
+  --paper: #ffffff;
+  --teal: #5253ac;
+  --font-display: "Fraunces", Georgia, serif;
+  --border: #dfc9e9;
+  --section-space: 90px;
   --header-height: 76px;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  color: #29263e;
-  background: #fcfbff;
+  font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  color: var(--text);
+  background: var(--surface);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -55,6 +58,8 @@ button {
   letter-spacing: 2px;
 }
 .section-heading h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
   font-size: clamp(32px, 5vw, 48px);
   letter-spacing: -2px;
   line-height: 1.2;
@@ -75,8 +80,8 @@ button {
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid var(--border);
-  background: #f5f3fb;
-  color: #665d80;
+  background: var(--surface);
+  color: var(--text-muted);
   font-size: 12px;
 }
 
@@ -92,7 +97,7 @@ section[id], #main-content { scroll-margin-top: calc(var(--header-height) + 20px
   justify-content: center;
   gap: 10px;
   padding: 15px 23px;
-  border-radius: 11px;
+  border-radius: 9px;
   font-size: 13px;
   font-weight: 600;
   transition: transform 0.2s, background 0.2s;
@@ -103,13 +108,13 @@ section[id], #main-content { scroll-margin-top: calc(var(--header-height) + 20px
 .btn-primary {
   background: var(--accent);
   color: white;
-  box-shadow: 0 10px 25px color-mix(in srgb, var(--accent) 17%, transparent);
+  box-shadow: none;
 }
 .btn-primary:hover {
-  background: #745fc4;
+  background: #912052;
 }
 .btn-outline {
-  background: white;
-  border: 1px solid #ddd7ed;
-  color: #51476c;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
 }

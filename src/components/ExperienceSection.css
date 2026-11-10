@@ -12,7 +12,7 @@
 .experience-timeline {
   position: relative;
   padding-left: 22px;
-  border-left: 2px solid #ded5f4;
+  border-left: 2px solid var(--surface-alt);
 }
 
 .experience-timeline::before {
@@ -24,14 +24,14 @@
   height: 12px;
   border: 3px solid var(--accent);
   border-radius: 50%;
-  background: #fff;
+  background: var(--paper);
 }
 
 .career-card {
   padding: 34px;
-  border: 1px solid #eae4f4;
-  border-radius: 20px;
-  background: #fff;
+  border: 1px solid var(--surface-alt);
+  border-radius: 4px;
+  background: var(--paper);
   box-shadow: 0 15px 45px rgba(61, 45, 100, 0.04);
 }
 
@@ -50,16 +50,16 @@
   justify-content: center;
   width: 49px;
   height: 49px;
-  border-radius: 14px;
-  background: #f0ebfc;
+  border-radius: 4px;
+  background: var(--surface-alt);
   color: var(--accent);
 }
 
 .career-period {
   padding: 8px 12px;
-  border-radius: 20px;
-  background: #f3effb;
-  color: #7b68bd;
+  border-radius: 4px;
+  background: var(--surface-alt);
+  color: var(--text-muted);
   font-size: 11px;
   font-weight: 700;
 }
@@ -88,12 +88,12 @@
 .career-divider {
   height: 1px;
   margin: 27px 0;
-  background: #eeeaf5;
+  background: var(--surface-alt);
 }
 
 .career-label {
   margin: 0 0 17px;
-  color: #9380cb;
+  color: var(--text-muted);
   font-size: 10px;
   font-weight: 750;
   letter-spacing: 1.5px;
@@ -113,7 +113,7 @@
 }
 
 .career-highlights li::marker {
-  color: #9b87d7;
+  color: var(--text-muted);
 }
 
 .experience-focus-grid {
@@ -128,9 +128,9 @@
   min-width: 0;
   min-height: 265px;
   padding: 25px;
-  border: 1px solid #eae4f4;
-  border-radius: 18px;
-  background: #fff;
+  border: 1px solid var(--surface-alt);
+  border-radius: 4px;
+  background: var(--paper);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -149,11 +149,11 @@
 .focus-icon {
   width: 43px;
   height: 43px;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 
 .focus-arrow {
-  color: #c0b5da;
+  color: var(--border);
 }
 
 .experience-focus-card h4 {
@@ -179,10 +179,10 @@
 
 .focus-tags span {
   padding: 6px 9px;
-  border: 1px solid #eee9f6;
+  border: 1px solid var(--surface-alt);
   border-radius: 7px;
-  background: #f6f3fc;
-  color: #76658e;
+  background: var(--surface-alt);
+  color: var(--text-muted);
   font-size: 10px;
 }
 

@@ -28,13 +28,13 @@
 
   padding: 14px 21px;
 
-  border-radius: 12px;
+  border-radius: 4px;
 
-  border: 1px solid #e9e4f3;
+  border: 1px solid var(--surface-alt);
 
-  background: white;
+  background: var(--paper);
 
-  color: #6c657e;
+  color: var(--text-muted);
 
   font-size: 13px;
 
@@ -54,7 +54,7 @@
 
   transform: translateY(-2px);
 
-  border-color: #c7bce8;
+  border-color: var(--border);
 
 }
 
@@ -78,11 +78,11 @@
 
   overflow: hidden;
 
-  border: 1px solid #eae5f4;
+  border: 1px solid var(--surface-alt);
 
-  border-radius: 22px;
+  border-radius: 4px;
 
-  background: white;
+  background: var(--paper);
 
   box-shadow: 0 16px 50px #51436c0a;
 
@@ -108,9 +108,9 @@
 
   justify-content: center;
 
-  border-radius: 16px;
+  border-radius: 4px;
 
-  background: #f1edfb;
+  background: var(--surface-alt);
 
   color: var(--accent);
 
@@ -132,7 +132,7 @@
 
   max-width: 580px;
 
-  color: #756f83;
+  color: var(--text-muted);
 
   line-height: 1.9;
 
@@ -156,13 +156,13 @@
 
   padding: 9px 13px;
 
-  background: #f6f3fc;
+  background: var(--surface-alt);
 
-  border: 1px solid #eee9f7;
+  border: 1px solid var(--surface-alt);
 
-  border-radius: 9px;
+  border-radius: 4px;
 
-  color: #665b80;
+  color: var(--text-muted);
 
   font-size: 12px;
 
@@ -174,9 +174,9 @@
 
   background:
 
-    linear-gradient(150deg, #f5f1ff, #f1f5ff);
+    linear-gradient(150deg, var(--surface-alt), var(--surface-alt));
 
-  border-left: 1px solid #ece7f5;
+  border-left: 1px solid var(--surface-alt);
 
 }
 
@@ -190,7 +190,7 @@
 
   letter-spacing: 1.5px;
 
-  color: #8b78c7;
+  color: var(--text-muted);
 
   margin-bottom: 30px;
 
@@ -208,7 +208,7 @@
 
   margin-bottom: 20px;
 
-  border-bottom: 1px solid #e5def2;
+  border-bottom: 1px solid var(--surface-alt);
 
 }
 
@@ -218,7 +218,7 @@
 
   font-weight: 700;
 
-  color: #a18ed6;
+  color: var(--text-muted);
 
 }
 
@@ -226,7 +226,7 @@
 
   margin: 0;
 
-  color: #5f5875;
+  color: var(--text-muted);
 
   line-height: 1.7;
 
@@ -244,7 +244,7 @@
 
   margin-top: 12px;
 
-  color: #7964c4;
+  color: var(--text-muted);
 
   font-size: 13px;
 
@@ -294,7 +294,7 @@
 
     border-left: 0;
 
-    border-top: 1px solid #ece7f5;
+    border-top: 1px solid var(--surface-alt);
 
   }
 

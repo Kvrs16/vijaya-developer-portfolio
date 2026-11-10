@@ -1,19 +1,15 @@
 /* CONTACT */
 .contact-section {
   text-align: center;
-  background:
-    radial-gradient(
-      ellipse at 50% 100%,
-      #ece5ff,
-      transparent 65%
-    ),
-    var(--surface);
+  background: var(--surface-alt);
 }
 .contact-content {
   max-width: 720px;
   margin: auto;
 }
 .contact-content h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
   font-size: clamp(35px, 6vw, 60px);
   letter-spacing: -2.5px;
   line-height: 1.2;

@@ -6,6 +6,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import RoleExplorer from "./components/RoleExplorer";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Reading from "./components/Reading";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <Navbar />
       <main id="main-content" tabIndex={-1}>
-        <Hero /><About /><ExperienceSection /><RoleExplorer /><Skills /><Projects /><Contact />
+        <Hero /><About /><ExperienceSection /><RoleExplorer /><Skills /><Projects /><Reading /><Contact />
       </main>
       <Footer />
     </MotionConfig>
