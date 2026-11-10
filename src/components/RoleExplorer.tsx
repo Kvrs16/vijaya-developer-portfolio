@@ -197,10 +197,10 @@ export default function RoleExplorer() {
               Explore projects <ArrowUpRight size={17} />
             </a>
             <a
-              href={`${import.meta.env.BASE_URL}${activeRole === "integration" ? "resume-integration.html" : "resume.html"}`}
+              href={`${import.meta.env.BASE_URL}${activeRole === "integration" ? "resume-integration.html" : activeRole === "java" || activeRole === "fullstack" ? "resume-software-engineer.html" : "resume.html"}`}
               className="role-project-link"
             >
-              {activeRole === "integration" ? "Integration résumé" : "Salesforce résumé"} <ArrowUpRight size={17} />
+              {activeRole === "integration" ? "Salesforce / MuleSoft résumé" : activeRole === "java" || activeRole === "fullstack" ? "Software engineering résumé" : "Salesforce résumé"} <ArrowUpRight size={17} />
             </a>
           </div>
         </div>

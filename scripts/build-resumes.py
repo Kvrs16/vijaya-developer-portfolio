@@ -56,7 +56,7 @@ ROLES = {
   'bullets': ['territory','lwc','agent','documents','access','data','quality','teamwork'],
  },
  'salesforce-integration': {
-  'title': 'Salesforce Integration / MuleSoft Developer',
+  'title': 'Salesforce Developer/ MuleSoft Developer',
   'summary': 'Salesforce integration developer building and deploying MuleSoft APIs, Apex REST endpoints, and connected business workflows. Hands-on experience with Salesforce-to-SFTP connectivity, authenticated integrations, document automation, and end-to-end troubleshooting.',
   'skills': [
    ('Integration development', 'MuleSoft, Anypoint Studio, Anypoint Platform, REST APIs, SFTP, data transformations'),
@@ -68,10 +68,50 @@ ROLES = {
  },
 }
 
+# Shared foundation is visible in every version; ordering varies by target role.
+SHARED_SKILLS = [
+ ('Salesforce Development', 'Apex, LWC, JavaScript, triggers, SOQL/SOSL, Flows, Batch/Queueable Apex, Visualforce (basic)'),
+ ('Clouds', 'Sales Cloud, Service Cloud, Experience Cloud, Marketing Cloud Advanced'),
+ ('Integration', 'REST APIs, Connected Apps, Named Credentials, External Credentials, OAuth 2.0'),
+ ('Middleware', 'MuleSoft flows/connectors, transformations, Anypoint Studio, Anypoint Platform'),
+ ('External Systems', 'Stripe, PandaDoc, DocuSign, Clay'),
+ ('AI and Data', 'Agentforce service agents/actions, Data Cloud DLO/DMO mapping, segmentation'),
+ ('Tools and Delivery', 'Git/GitHub, Salesforce CLI, VS Code, Postman, Jira, Apex testing, Nebula Logger'),
+ ('Programming and Web', 'Java, JavaScript, TypeScript, Python, C++, HTML/CSS, React, OOP, DSA (academic foundations; JavaScript used professionally in LWC)'),
+ ('Backend and Databases', 'Spring Boot, REST, PostgreSQL, JPA, Flyway, JUnit (ReliableJobs); Node.js/Express, FastAPI, SQL/MySQL, MongoDB (academic/internship foundations)'),
+]
+EDUCATION = [
+ ('p','B.Tech., Computer Science and Engineering | Noida Institute of Engineering and Technology | 2025'),
+ ('p','Class XII | Kunwar Convent School | CBSE | 2020'),
+ ('p','Class X | Holy Cross School | ICSE | 2018'),
+]
+ROLES['software-engineer'] = {
+ 'title':'Software Engineer',
+ 'summary':'Software engineer with professional Salesforce, JavaScript/LWC, integration, and automation experience. Builds Java and Spring Boot backends through personal projects, with academic and internship foundations in full-stack development, REST APIs, and databases.',
+ 'skills':[],
+ 'bullets':['lwc','mule','quality','teamwork'],
+ 'general_focus':True,
+}
+for slug,role in ROLES.items():
+    role['skills']=list(SHARED_SKILLS)
+    if slug=='software-engineer':
+        role['skills']=SHARED_SKILLS[-2:]+SHARED_SKILLS[:-2]
+    elif slug=='salesforce-integration':
+        role['skills']=[SHARED_SKILLS[i] for i in [3,2,0,1,4,5,6,7,8]]
+
+RESUME_PAGES={'salesforce-developer':'resume.html','salesforce-integration':'resume-integration.html','software-engineer':'resume-software-engineer.html'}
+RESUME_LABELS={'salesforce-developer':'Salesforce Developer','salesforce-integration':'Salesforce / MuleSoft','software-engineer':'Software Engineering'}
+
 def lines_for(role, public=False):
     contacts = [] if public and not profile.get('public_contacts') else [profile['email'], profile['phone']]
     contacts += ['github.com/Kvrs16', profile['linkedin'].removeprefix('https://')]
     return ' | '.join(contacts)
+
+def contact_entries(public=False):
+    entries=[]
+    if not public or profile.get('public_contacts'):
+        entries += [('email',profile['email'],'mailto:'+profile['email']),('phone',profile['phone'],'tel:'+profile['phone'].replace(' ',''))]
+    return entries + [('github','github.com/Kvrs16','https://github.com/Kvrs16'),('linkedin',profile['linkedin'].removeprefix('https://'),profile['linkedin'])]
 
 def sections(role):
     if role.get('professional_focus'):
@@ -85,7 +125,7 @@ def sections(role):
             ('bullet','Configured access controls and authenticated integrations; tested callouts and asynchronous Apex, added Nebula Logger to Apex/Flows, and deployed dependency-based metadata changes.'),
             ('bullet','Independently delivered assigned implementations and collaborated with other developers on LWC testing, Flow investigations, and permission-set troubleshooting.'),
           ]),
-          ('SELECTED PROFESSIONAL IMPLEMENTATIONS', [
+          ('WORK EXPERIENCE', [
             ('job','Territory Assignment and Division-Based Automation'),
             ('bullet','Extended territory assignment using supporting custom objects, bulkified trigger handlers, Batch Apex, and Queueable Apex; enabled manual entry through Screen Flow.'),
             ('bullet','Propagated account changes to opportunities, updated account teams, and populated role-specific fields using territory membership and division-based logic.'),
@@ -96,7 +136,7 @@ def sections(role):
             ('bullet','Built and tested a service agent with Flow-based email verification, embedded messaging, Omni-Channel routing, and multiple subagents for different support use cases.'),
             ('bullet','Implemented case creation for verified and unverified users and linked Messaging Sessions to related cases.'),
           ]),
-          ('EDUCATION', [('p','B.Tech., Computer Science and Engineering | Noida Institute of Engineering and Technology | 2025')]),
+          ('EDUCATION', EDUCATION),
         ]
     return [
       ('SUMMARY', [('p',role['summary'])]),
@@ -108,8 +148,15 @@ def sections(role):
         ('job','Backend Developer Intern | Celebal Technologies | July 2024 - September 2024'),
         ('bullet','Built backend services and REST APIs for an employee management application; developed a WebSocket chat application with token-based authentication and Node.js task automation.'),
       ]),
-      ('EDUCATION', [('p','Bachelor of Technology, Computer Science and Engineering | 2025'),('p','Noida Institute of Engineering and Technology')]),
-      ('ADDITIONAL KNOWLEDGE', [('p','Academic experience: Java, Spring Boot, and full-stack application development; currently refreshing these skills.')]),
+      *([('PERSONAL PROJECTS', [
+        ('job','ReliableJobs | Java 21, Spring Boot, PostgreSQL'),
+        ('bullet','Built a task-processing API where users submit synthetic CSV-summary or record-validation jobs, inspect attempts, retrieve results, and request cancellation or retry.'),
+        ('bullet','Implemented user-scoped idempotency, a durable PostgreSQL queue, lease-based recovery, bounded retries, and session-protected owner access.'),
+        ('job','PrakritiPal | React, FastAPI, WebSockets, SQLite | Academic Project'),
+        ('bullet','Built a React chat interface connected to a FastAPI WebSocket backend for a questionnaire-driven educational chatbot.'),
+        ('bullet','Used SQLite/SQLAlchemy for chat and questionnaire data, with model-backed conversational responses and interactive message rendering.'),
+      ])] if role.get('general_focus') else []),
+      ('EDUCATION', EDUCATION),
     ]
 
 fonts = Path('C:/Windows/Fonts')
@@ -120,10 +167,10 @@ styles = {
  'target': ParagraphStyle('target',fontName='ResumeBold',fontSize=11,leading=14,spaceAfter=5),
  'contact': ParagraphStyle('contact',fontName='Resume',fontSize=8.7,leading=12,spaceAfter=5),
  'heading': ParagraphStyle('heading',fontName='ResumeBold',fontSize=10.5,leading=13,spaceBefore=8,spaceAfter=4,keepWithNext=True),
- 'skill': ParagraphStyle('skill',fontName='Resume',fontSize=10.5,leading=14,spaceAfter=3),
- 'p': ParagraphStyle('body',fontName='Resume',fontSize=10.5,leading=14,spaceAfter=3),
- 'job': ParagraphStyle('job',fontName='ResumeBold',fontSize=10.5,leading=14,spaceBefore=3,spaceAfter=4,keepWithNext=True),
- 'bullet': ParagraphStyle('bullet',fontName='Resume',fontSize=10.5,leading=13.5,leftIndent=9,firstLineIndent=-7,spaceAfter=3),
+ 'skill': ParagraphStyle('skill',fontName='Resume',fontSize=10,leading=12.5,spaceAfter=2),
+ 'p': ParagraphStyle('body',fontName='Resume',fontSize=10.5,leading=13,spaceAfter=3),
+ 'job': ParagraphStyle('job',fontName='ResumeBold',fontSize=10.5,leading=13,spaceBefore=3,spaceAfter=4,keepWithNext=True),
+ 'bullet': ParagraphStyle('bullet',fontName='Resume',fontSize=10.5,leading=13,leftIndent=9,firstLineIndent=-7,spaceAfter=3),
 }
 
 css = '''
@@ -144,11 +191,12 @@ body { margin:0; background:linear-gradient(145deg,#f4f1fa,#e9edf4); color:#2523
 .downloads a:first-child { background:#654ca3; color:white; border-color:#654ca3; }
 a:focus-visible { outline:3px solid #7159bb; outline-offset:4px; }
 main { max-width:850px; margin:0 auto; padding:48px 54px; background:white; border:1px solid #e3dfea; box-shadow:0 18px 55px #33234312,0 2px 8px #33234305; border-radius:3px; }
-.resume-header { border-bottom:2px solid #292538; padding-bottom:19px; margin-bottom:24px; }
+.resume-header { text-align:center; border-bottom:2px solid #292538; padding-bottom:19px; margin-bottom:24px; }
 .resume-header h1 { font-size:28pt; margin:0 0 4px; letter-spacing:-.8px; line-height:1.2; }
 .target { font-weight:bold; font-size:12pt; color:#544367; margin:0 0 12px; }
-.contacts { display:flex; flex-wrap:wrap; column-gap:16px; row-gap:3px; font-size:9.5pt; overflow-wrap:anywhere; color:#5b5663; }
-.contacts a { color:inherit; text-decoration:none; }
+.contacts { display:flex; justify-content:center; flex-wrap:wrap; column-gap:16px; row-gap:3px; font-size:9.5pt; overflow-wrap:anywhere; color:#5b5663; }
+.contacts a { display:inline-flex; align-items:center; gap:5px; color:inherit; text-decoration:none; }
+.contacts svg { width:12px; height:12px; flex-shrink:0; }
 .contacts a:hover { text-decoration:underline; }
 section { margin-top:24px; }
 h2 { font-size:11pt; text-transform:uppercase; letter-spacing:1.1px; margin:0 0 12px; border-bottom:1px solid #d9d4df; padding-bottom:6px; }
@@ -204,6 +252,7 @@ def overleaf_resume(role):
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{xcolor}
+\usepackage{fontawesome5}
 \usepackage[unicode,hidelinks]{hyperref}
 \input{glyphtounicode}
 \pdfgentounicode=1
@@ -219,9 +268,9 @@ def overleaf_resume(role):
 '''
     esc=tex_escape
     header=(r'{\normalsize '+esc(role['title'])+r'}\\[3pt]'+'\n'+
-        r'\small \href{mailto:'+profile['email']+'}{'+esc(profile['email'])+r'} \enspace|\enspace '+esc(profile['phone'])+r'\\[2pt]'+'\n'+
-        r'\href{https://github.com/Kvrs16}{github.com/Kvrs16} \enspace|\enspace '+
-        r'\href{'+profile['linkedin']+'}{'+esc(profile['linkedin'].removeprefix('https://'))+'}\n'+r'\end{center}'+'\n')
+        r'\small \href{mailto:'+profile['email']+'}{'+r'\faEnvelope\ '+esc(profile['email'])+r'} \enspace|\enspace \href{tel:'+profile['phone'].replace(' ','')+'}{'+r'\faPhone\ '+esc(profile['phone'])+r'}\\[2pt]'+'\n'+
+        r'\href{https://github.com/Kvrs16}{\faGithub\ github.com/Kvrs16} \enspace|\enspace '+
+        r'\href{'+profile['linkedin']+'}{'+r'\faLinkedin\ '+esc(profile['linkedin'].removeprefix('https://'))+'}\n'+r'\end{center}'+'\n')
     body=[]
     for title,items in sections(role):
         body.append(r'\section{'+esc(title.title())+'}\n')
@@ -241,9 +290,9 @@ def overleaf_resume(role):
 def html_resume(role, slug, public=False):
     esc=html.escape
     contact_items=[]
-    if not public or profile.get('public_contacts'):
-        contact_items += [f'<a href="mailto:{esc(profile["email"])}">{esc(profile["email"])}</a>', f'<a href="tel:{esc(profile["phone"].replace(" ",""))}">{esc(profile["phone"])}</a>']
-    contact_items += ['<a href="https://github.com/Kvrs16">github.com/Kvrs16</a>',f'<a href="{esc(profile["linkedin"])}">{esc(profile["linkedin"].removeprefix("https://"))}</a>']
+    for icon,text,url in contact_entries(public):
+        svg=(ROOT/'public'/'resume-icons'/f'{icon}.svg').read_text(encoding='utf-8').replace('<svg ','<svg aria-hidden="true" focusable="false" ',1)
+        contact_items.append(f'<a href="{esc(url)}">{svg}<span>{esc(text)}</span></a>')
     parts=[f'<header class="resume-header"><h1>Vijaya Rani</h1><p class="target">{esc(role["title"])}</p><div class="contacts">'+''.join(contact_items)+'</div></header>']
     for title,items in sections(role):
         parts.append(f'<section><h2>{title}</h2>')
@@ -263,66 +312,64 @@ def html_resume(role, slug, public=False):
         parts.append('</section>')
     nav=''
     if public:
-        sales_current=' aria-current="page"' if slug=='salesforce-developer' else ''
-        integration_current=' aria-current="page"' if slug=='salesforce-integration' else ''
-        nav=f'<a class="back-link" href="./">← Back to portfolio</a><div class="page-intro"><span class="eyebrow">Experience & expertise</span><h1>Résumé</h1><p>Explore my experience by role, then download a PDF or an editable Word copy.</p></div><nav class="toolbar" aria-label="Résumé versions"><div class="role-options"><a href="resume.html"{sales_current}>Salesforce Developer</a><a href="resume-integration.html"{integration_current}>Integration / MuleSoft</a></div><div class="downloads"><a href="resumes/Vijaya-Rani-{slug}.pdf" download>Download PDF</a><a href="resumes/Vijaya-Rani-{slug}.docx" download>Word version</a></div></nav>'
+        tabs=''.join(f'<a href="{page}"'+(' aria-current="page"' if key==slug else '')+f'>{RESUME_LABELS[key]}</a>' for key,page in RESUME_PAGES.items())
+        nav=f'<a class="back-link" href="./">← Back to portfolio</a><div class="page-intro"><span class="eyebrow">Experience & expertise</span><h1>Résumé</h1><p>Explore my experience by role, then download a PDF or an editable Word copy.</p></div><nav class="toolbar" aria-label="Résumé versions"><div class="role-options">{tabs}</div><div class="downloads"><a href="resumes/Vijaya-Rani-{slug}.pdf" download>Download PDF</a><a href="resumes/Vijaya-Rani-{slug}.docx" download>Word version</a></div></nav>'
         if role.get('professional_focus'):
             nav=nav.replace('</div></nav>',f'<a href="resumes/Vijaya-Rani-{slug}.tex" download>Overleaf source</a></div></nav>')
     note='<p class="page-note">The downloadable files contain the same role-specific experience shown above.</p>' if public else ''
-    classic=' classic-resume' if role.get('professional_focus') else ''
+    classic=' classic-resume'
     return f'<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Vijaya Rani | {esc(role["title"])} Résumé</title><style>{css}</style></head><body><div class="workspace">{nav}<main class="resume-document{classic}">'+''.join(parts)+f'</main>{note}</div></body></html>'
 
 for slug,role in ROLES.items():
     if '--role' in sys.argv and slug != sys.argv[sys.argv.index('--role')+1]:
         continue
     role_styles={key: value.clone(key+'-'+slug) for key,value in styles.items()}
-    if role.get('professional_focus'):
-        for key,style in role_styles.items():
-            style.fontName='Times-Bold' if key in ['name','target','heading','job'] else 'Times-Roman'
-        for key in ['name','target','contact']:
-            role_styles[key].alignment=TA_CENTER
+    for key,style in role_styles.items():
+        style.fontName='Times-Bold' if key in ['name','target','heading','job'] else 'Times-Roman'
+    for key in ['name','target','contact']:
+        role_styles[key].alignment=TA_CENTER
+    if role.get('professional_focus') or role.get('general_focus'):
         role_styles['heading'].spaceBefore=7
         role_styles['heading'].spaceAfter=2
         role_styles['job'].spaceBefore=2
         role_styles['bullet'].leading=12.5
         role_styles['bullet'].spaceAfter=2
     stem=OUTPUT/f'Vijaya-Rani-{slug}'
-    contact_line=html.escape(lines_for(role))
-    for text,url in [(profile['email'],'mailto:'+profile['email']),('github.com/Kvrs16','https://github.com/Kvrs16'),(profile['linkedin'].removeprefix('https://'),profile['linkedin'])]:
-        contact_line=contact_line.replace(html.escape(text),f'<link href="{html.escape(url,quote=True)}">{html.escape(text)}</link>')
+    contact_line=' | '.join(f'<img src="{(ROOT/"public"/"resume-icons"/(icon+".png")).as_posix()}" width="8" height="8" valign="middle"/> <link href="{html.escape(url,quote=True)}">{html.escape(text)}</link>' for icon,text,url in contact_entries())
     story=[Paragraph('Vijaya Rani',role_styles['name']),Paragraph(html.escape(role['title']),role_styles['target']),Paragraph(contact_line,role_styles['contact'])]
     for title,items in sections(role):
         story.append(Paragraph(title,role_styles['heading']))
-        if role.get('professional_focus'):
-            story.append(HRFlowable(width='100%',thickness=.5,color=colors.black,spaceAfter=4))
+        story.append(HRFlowable(width='100%',thickness=.5,color=colors.black,spaceAfter=4))
         for kind,text in items:
             formatted=html.escape(text)
             if kind=='skill':
                 label, value=text.split(': ',1)
-                bold_font='Times-Bold' if role.get('professional_focus') else 'ResumeBold'
+                bold_font='Times-Bold'
                 formatted=f'<font name="{bold_font}">{html.escape(label)}:</font> {html.escape(value)}'
             story.append(Paragraph(('&#8226; ' if kind=='bullet' else '')+formatted,role_styles[kind]))
     SimpleDocTemplate(str(stem.with_suffix('.pdf')),pagesize=A4,rightMargin=39,leftMargin=39,topMargin=32,bottomMargin=32,title=f'Vijaya Rani - {role["title"]}',author='Vijaya Rani').build(story)
     doc=Document()
     sec=doc.sections[0]; sec.page_height=Inches(11.69);sec.page_width=Inches(8.27)
     sec.top_margin=sec.bottom_margin=Inches(.45);sec.left_margin=sec.right_margin=Inches(.55)
-    normal=doc.styles['Normal'];normal.font.name='Times New Roman' if role.get('professional_focus') else 'Arial';normal.font.size=Pt(10.5);normal.paragraph_format.space_after=Pt(3);normal.paragraph_format.line_spacing=1.05
+    normal=doc.styles['Normal'];normal.font.name='Times New Roman';normal.font.size=Pt(10.5);normal.paragraph_format.space_after=Pt(3);normal.paragraph_format.line_spacing=1.05
     for heading in ['Title','Heading 1','Heading 2']:
-        doc.styles[heading].font.name='Times New Roman' if role.get('professional_focus') else 'Arial';doc.styles[heading].font.color.rgb=RGBColor(23,23,23)
+        doc.styles[heading].font.name='Times New Roman';doc.styles[heading].font.color.rgb=RGBColor(23,23,23)
     p=doc.add_paragraph();r=p.add_run('Vijaya Rani');r.bold=True;r.font.size=Pt(22)
     p=doc.add_paragraph(role['title']);p.runs[0].bold=True
-    doc.add_paragraph(lines_for(role))
-    if role.get('professional_focus'):
-        for paragraph in doc.paragraphs:
-            paragraph.alignment=1
+    p=doc.add_paragraph()
+    for index,(icon,text,url) in enumerate(contact_entries()):
+        if index:p.add_run(' | ')
+        p.add_run().add_picture(str(ROOT/'public'/'resume-icons'/f'{icon}.png'),width=Inches(.10))
+        p.add_run(' '+text)
+    for paragraph in doc.paragraphs:
+        paragraph.alignment=1
     for title,items in sections(role):
         p=doc.add_paragraph();p.paragraph_format.space_before=Pt(8);p.paragraph_format.keep_with_next=True
         r=p.add_run(title);r.bold=True;r.font.size=Pt(10)
-        if role.get('professional_focus'):
-            borders=OxmlElement('w:pBdr');bottom=OxmlElement('w:bottom')
-            for key,value in [('val','single'),('sz','4'),('space','3'),('color','333333')]:
-                bottom.set(qn('w:'+key),value)
-            borders.append(bottom);p._p.get_or_add_pPr().append(borders)
+        borders=OxmlElement('w:pBdr');bottom=OxmlElement('w:bottom')
+        for key,value in [('val','single'),('sz','4'),('space','3'),('color','333333')]:
+            bottom.set(qn('w:'+key),value)
+        borders.append(bottom);p._p.get_or_add_pPr().append(borders)
         for kind,text in items:
             if kind=='skill':
                 label,value=text.split(': ',1)
@@ -338,7 +385,7 @@ for slug,role in ROLES.items():
     pdf=PdfReader(stem.with_suffix('.pdf'))
     text='\n'.join(p.extract_text() for p in pdf.pages)
     stem.with_suffix('.txt').write_text(text,encoding='utf-8')
-    assert len(pdf.pages)==1, f'{slug}: expected one page, got {len(pdf.pages)}'
+    assert 1 <= len(pdf.pages) <= 2, f'{slug}: expected at most two readable pages, got {len(pdf.pages)}'
     for expected in ['Vijaya Rani','SUMMARY','TECHNICAL SKILLS','PROFESSIONAL EXPERIENCE','EDUCATION',profile['email'],'Blueflame','2025']:
         assert expected.lower() in text.lower(), f'Missing extracted content: {expected}'
     print(f'{slug}: {len(pdf.pages)} page; {len(text.split())} extracted words; PDF and DOCX generated.')
@@ -348,5 +395,5 @@ for slug,role in ROLES.items():
         extensions=['.pdf','.docx','.tex'] if role.get('professional_focus') else ['.pdf','.docx']
         for extension in extensions:
             shutil.copyfile(stem.with_suffix(extension), downloads/stem.with_suffix(extension).name)
-        filename='resume.html' if slug=='salesforce-developer' else 'resume-integration.html'
+        filename=RESUME_PAGES[slug]
         (ROOT/'public'/filename).write_text(html_resume(role,slug,public=True),encoding='utf-8')

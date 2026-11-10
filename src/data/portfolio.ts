@@ -194,18 +194,18 @@ export const projects: PortfolioProject[] = [
     scope: "A future personal project inspired by my professional Agentforce experience. No implementation or demo is published yet."
   },
   {
-    title: "PartnerFeed — Salesforce Data Exchange",
+    title: "EventBridge — Salesforce Calendar Coordination",
     category: "MuleSoft",
     description:
-      "A planned MuleSoft integration that validates synthetic partner CSV files from SFTP, transforms records, and synchronizes them with Salesforce.",
-    technologies: ["MuleSoft", "DataWeave", "SFTP", "Salesforce", "MUnit"],
+      "A planned MuleSoft integration that coordinates Salesforce appointments with Google Calendar, handling time zones, duplicate requests, and conflicting updates.",
+    technologies: ["MuleSoft", "Google Calendar API", "OAuth 2.0", "DataWeave", "MUnit"],
     status: "Planned",
     highlights: [
-      "Planned: file validation, external-ID upserts, duplicate-file detection, and row-level error reports.",
-      "Planned: bounded retries, correlation IDs, and safe reprocessing after partial failures.",
-      "Planned: local synthetic fixtures and MUnit tests for transformation and connector failures."
+      "Planned: explicit user-authorized event creation and updates, with Salesforce-to-calendar identifier mapping.",
+      "Planned: time-zone-safe scheduling, idempotent replay, loop prevention, and a defined conflict-resolution policy.",
+      "Planned: OAuth token handling, rate-limit-aware retries, and mocked tests for revoked access and downstream failures."
     ],
-    scope: "A future personal integration project. Runtime, connector, and cloud entitlements will be verified before implementation; no permanent free cloud hosting is assumed."
+    scope: "A future personal Google Calendar integration with synthetic appointments. API quotas, OAuth testing restrictions, and MuleSoft runtime access will be verified before implementation; paid connectors and permanent free cloud hosting are not assumed."
   },
   {
     title: "OrderCare — Agentforce + MuleSoft",

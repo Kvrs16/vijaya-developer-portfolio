@@ -4,7 +4,7 @@
 
 A personal portfolio presenting my Salesforce development, MuleSoft integration, and automation experience as an Associate Technical Consultant at Blueflame Labs. Built with React, TypeScript, and Vite, and deployed to GitHub Pages through GitHub Actions.
 
-**[View portfolio](https://Kvrs16.github.io/vijaya-developer-portfolio/)** · **[Salesforce résumé](https://Kvrs16.github.io/vijaya-developer-portfolio/resume.html)** · **[Integration résumé](https://Kvrs16.github.io/vijaya-developer-portfolio/resume-integration.html)**
+**[View portfolio](https://Kvrs16.github.io/vijaya-developer-portfolio/)** · **[Salesforce résumé](https://Kvrs16.github.io/vijaya-developer-portfolio/resume.html)** · **[Salesforce/MuleSoft résumé](https://Kvrs16.github.io/vijaya-developer-portfolio/resume-integration.html)** · **[Software Engineering résumé](https://Kvrs16.github.io/vijaya-developer-portfolio/resume-software-engineer.html)**
 
 ## About the project
 
@@ -20,7 +20,7 @@ The Revenue Hub baseline uses deterministic mock payment and document providers.
 
 [ReliableJobs — Task Processing API](https://github.com/Kvrs16/reliablejobs) is a personal Java 21 / Spring Boot backend with PostgreSQL-backed job claiming, idempotent submissions, lease recovery, bounded retries, cooperative cancellation, session authentication, and owner-authorized results. Its card links to source, architecture, Windows setup, and API documentation. Maven verification on 10 November 2026 passed 4 unit tests and 22 PostgreSQL integration tests with zero failures, errors, or skips. It is a local-first backend with synthetic workloads, not a hosted API or a separate published library. See [the source review and next steps](docs/reliablejobs-review.md).
 
-The full-stack card remains planned. Dedicated **Agentforce**, **MuleSoft**, and **Agentforce + MuleSoft** project filters show ServiceDesk, PartnerFeed, and OrderCare respectively. These are proposed personal projects, separate from the professional implementations in the résumé. See [the project ideas, scope, and acceptance criteria](docs/planned-agentforce-mulesoft-projects.md).
+The full-stack card remains planned. Dedicated **Agentforce**, **MuleSoft**, and **Agentforce + MuleSoft** project filters show ServiceDesk, EventBridge (Salesforce–Google Calendar coordination), and OrderCare respectively. These are proposed personal projects, separate from the professional implementations in the résumé. See [the project ideas, scope, and acceptance criteria](docs/planned-agentforce-mulesoft-projects.md).
 
 ## Features
 
@@ -29,7 +29,8 @@ The full-stack card remains planned. Dedicated **Agentforce**, **MuleSoft**, and
 - Interactive Salesforce, Java/backend, full-stack, and integration specialization panels.
 - Technical skills grouped by area, with academic experience labelled separately.
 - Category filters for project cards.
-- Two résumé versions: Salesforce Developer and Salesforce Integration / MuleSoft Developer.
+- Three résumé versions: Salesforce Developer, Salesforce Developer/ MuleSoft Developer, and Software Engineer.
+- Shared programming/full-stack skills and degree, Class XII, and Class X education across all résumé versions; role-specific emphasis separates work, personal projects, and academic foundations.
 - Dedicated résumé pages with role switching, grouped technical skills, contact links, and PDF/Word downloads.
 - Single-column, selectable-text résumé PDFs and editable DOCX files; print-specific web styling.
 - Keyboard skip link, visible focus indicators, Escape-to-close mobile navigation, anchor offsets, and reduced-motion support.
@@ -73,6 +74,7 @@ public/
   favicon.svg                  Custom VR favicon
   resume.html                  Salesforce Developer résumé page
   resume-integration.html      Integration / MuleSoft résumé page
+  resume-software-engineer.html General software engineering résumé page
   resumes/                     Downloadable PDF and DOCX versions
 scripts/
   build-resumes.py             Shared résumé content and document generator
@@ -129,9 +131,11 @@ python scripts/build-resumes.py --role salesforce-developer --update-public
 
 `.resume-tools/` and `resume-drafts/` are ignored by Git. The current website includes the owner's approved email and phone number. Set `public_contacts` deliberately when regenerating for another profile.
 
-The generator checks that each PDF is one page and that core content extracts as text. Inspect the generated layout after changing content; Word pagination may vary by application. No ATS score is claimed: job-description matching must be assessed for the specific application.
+The generator checks that each PDF stays within two pages and that core content extracts as text. The current three PDFs fit one page each. Inspect the generated layout after changing content; Word pagination may vary by application. No ATS score is claimed: job-description matching must be assessed for the specific application.
 
-The Salesforce résumé now includes anonymized office implementations and an Overleaf-style presentation. Its downloadable `.tex` source retains template attribution. The generated PDF uses ReportLab; exact Overleaf compilation/pagination requires checking in pdfLaTeX. See [revision details](docs/salesforce-resume-revision.md). The integration résumé is being revised separately.
+The Salesforce résumé includes anonymized office implementations under **Work Experience**. All versions use a centered name/role/contact header, serif document typography, ruled sections, and contact icons with readable labels. The general résumé describes ReliableJobs and PrakritiPal by their functionality; see [project source review](docs/resume-project-sources.md). Its heading is simply **Software Engineer**.
+
+The Salesforce `.tex` source retains template attribution and uses Font Awesome contact icons with text labels. The generated PDF uses ReportLab; exact Overleaf compilation/pagination requires checking in pdfLaTeX. All résumé versions include shared skills and school education. See [revision details](docs/salesforce-resume-revision.md). Local contact SVG/PNG assets are in `public/resume-icons/`; their attribution and generation notes are included there.
 
 ## GitHub Pages deployment
 
