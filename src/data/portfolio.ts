@@ -180,11 +180,47 @@ export const projects: PortfolioProject[] = [
     status: "Planned"
   },
   {
-    title: "Intelligent Salesforce Automation",
-    category: "AI & Automation",
+    title: "ServiceDesk — Agentforce Support Assistant",
+    category: "Agentforce",
     description:
-      "A demonstration of AI-assisted workflows and Salesforce automation.",
-    technologies: ["Agentforce", "Apex", "Flow"],
-    status: "Planned"
+      "A planned support assistant that retrieves authorized case information, suggests troubleshooting steps, and prepares investigation tasks for human confirmation.",
+    technologies: ["Agentforce", "Apex", "Flow", "LWC"],
+    status: "Planned",
+    highlights: [
+      "Planned: an LWC case workspace with a synthetic troubleshooting-playbook library.",
+      "Planned: permission-aware agent actions for case lookup and task preparation, with confirmation before changes.",
+      "Planned: tests for denied access, missing records, prompt injection, and unavailable AI capacity."
+    ],
+    scope: "A future personal project inspired by my professional Agentforce experience. No implementation or demo is published yet."
+  },
+  {
+    title: "PartnerFeed — Salesforce Data Exchange",
+    category: "MuleSoft",
+    description:
+      "A planned MuleSoft integration that validates synthetic partner CSV files from SFTP, transforms records, and synchronizes them with Salesforce.",
+    technologies: ["MuleSoft", "DataWeave", "SFTP", "Salesforce", "MUnit"],
+    status: "Planned",
+    highlights: [
+      "Planned: file validation, external-ID upserts, duplicate-file detection, and row-level error reports.",
+      "Planned: bounded retries, correlation IDs, and safe reprocessing after partial failures.",
+      "Planned: local synthetic fixtures and MUnit tests for transformation and connector failures."
+    ],
+    scope: "A future personal integration project. Runtime, connector, and cloud entitlements will be verified before implementation; no permanent free cloud hosting is assumed."
+  },
+  {
+    title: "OrderCare — Agentforce + MuleSoft",
+    category: "Agentforce + MuleSoft",
+    description:
+      "A planned service assistant that uses MuleSoft APIs to retrieve synthetic order and shipment information and prepare a service request after user confirmation.",
+    technologies: ["Agentforce", "MuleSoft", "REST APIs", "Apex", "Flow"],
+    status: "Planned",
+    highlights: [
+      "Planned: a mock order/shipping API behind a stable MuleSoft integration contract.",
+      "Planned: authorized order lookup and confirmed request creation, without treating an email match as authentication.",
+      "Planned: clear fallback behavior for timeout, unavailable orders, and partial downstream failures."
+    ],
+    scope: "A future combined personal project using synthetic data. No real orders, payments, client systems, or completed integrations are claimed."
   }
 ];
+
+export const projectCategories = ["All", ...new Set(projects.map((project) => project.category))];

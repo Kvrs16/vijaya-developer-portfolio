@@ -1,0 +1,76 @@
+% Format adapted from the supplied Jitin Nair resume template.
+% MIT License
+% Copyright (c) 2021 Jitin Nair
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+% The above copyright notice and this permission notice shall be included in
+% all copies or substantial portions of the Software.
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=0.55in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[unicode,hidelinks]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlist[itemize]{leftmargin=1.15em,itemsep=1pt,topsep=2pt,parsep=0pt}
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Vijaya Rani}\\[3pt]
+{\normalsize Salesforce Developer}\\[3pt]
+\small \href{mailto:er.vijayarani7@gmail.com}{er.vijayarani7@gmail.com} \enspace|\enspace +91 7310137813\\[2pt]
+\href{https://github.com/Kvrs16}{github.com/Kvrs16} \enspace|\enspace \href{https://in.linkedin.com/in/vijaya-rani-7k111}{in.linkedin.com/in/vijaya-rani-7k111}
+\end{center}
+\section{Summary}
+Associate Technical Consultant delivering Salesforce development, enterprise integrations, and service automation. Hands-on experience with bulkified Apex, Lightning Web Components, MuleSoft, and Agentforce, including independent implementation and collaborative testing and troubleshooting.\par
+\section{Technical Skills}
+\textbf{Development:} Apex, Lightning Web Components (LWC), JavaScript, SOQL, SOSL, triggers, Batch Apex, Queueable Apex, Salesforce Flow\par
+\textbf{Platforms:} Sales Cloud, Service Cloud, Experience Cloud, Agentforce, Data Cloud, Marketing Cloud Advanced\par
+\textbf{Integration:} MuleSoft, Anypoint Studio/Platform, REST APIs, SFTP, OAuth 2.0, Named/External Credentials\par
+\textbf{Tools and delivery:} Apex testing, Nebula Logger, Salesforce CLI, Git, change sets, metadata deployments\par
+\section{Professional Experience}
+\textbf{Associate Technical Consultant | Blueflame Labs | July 2025 - Present}\par
+Initial training from July 2025; Salesforce/MuleSoft implementation work since December 2025.\par
+\begin{itemize}
+\item Built and enhanced LWC forms and quote builders; debugged component behavior with browser developer tools and investigated Flow-related Apex test failures.
+\item Configured access controls and authenticated integrations; tested callouts and asynchronous Apex, added Nebula Logger to Apex/Flows, and deployed dependency-based metadata changes.
+\item Independently delivered assigned implementations and collaborated with other developers on LWC testing, Flow investigations, and permission-set troubleshooting.
+\end{itemize}
+\section{Selected Professional Implementations}
+\textbf{Territory Assignment and Division-Based Automation}\par
+\begin{itemize}
+\item Extended territory assignment using supporting custom objects, bulkified trigger handlers, Batch Apex, and Queueable Apex; enabled manual entry through Screen Flow.
+\item Propagated account changes to opportunities, updated account teams, and populated role-specific fields using territory membership and division-based logic.
+\end{itemize}
+\textbf{Enterprise Integrations and Document Workflows}\par
+\begin{itemize}
+\item Built, tested, and deployed MuleSoft flows connecting Salesforce, SFTP, and external applications; implemented transformations/authentication and diagnosed failures using Anypoint logs.
+\item Implemented a Stripe invoice REST handler and receipt workflow; configured PandaDoc template synchronization, DocuSign document/signature workflows, and Clay data exchange.
+\end{itemize}
+\textbf{Agentforce Service Agent and Case Automation}\par
+\begin{itemize}
+\item Built and tested a service agent with Flow-based email verification, embedded messaging, Omni-Channel routing, and multiple subagents for different support use cases.
+\item Implemented case creation for verified and unverified users and linked Messaging Sessions to related cases.
+\end{itemize}
+\section{Education}
+B.Tech., Computer Science and Engineering | Noida Institute of Engineering and Technology | 2025\par
+\end{document}

@@ -20,7 +20,7 @@ The Revenue Hub baseline uses deterministic mock payment and document providers.
 
 [ReliableJobs — Task Processing API](https://github.com/Kvrs16/reliablejobs) is a personal Java 21 / Spring Boot backend with PostgreSQL-backed job claiming, idempotent submissions, lease recovery, bounded retries, cooperative cancellation, session authentication, and owner-authorized results. Its card links to source, architecture, Windows setup, and API documentation. Maven verification on 10 November 2026 passed 4 unit tests and 22 PostgreSQL integration tests with zero failures, errors, or skips. It is a local-first backend with synthetic workloads, not a hosted API or a separate published library. See [the source review and next steps](docs/reliablejobs-review.md).
 
-The full-stack and AI project cards remain planned.
+The full-stack card remains planned. Dedicated **Agentforce**, **MuleSoft**, and **Agentforce + MuleSoft** project filters show ServiceDesk, PartnerFeed, and OrderCare respectively. These are proposed personal projects, separate from the professional implementations in the résumé. See [the project ideas, scope, and acceptance criteria](docs/planned-agentforce-mulesoft-projects.md).
 
 ## Features
 
@@ -122,11 +122,16 @@ python scripts/build-resumes.py
 
 # Refresh website pages and downloadable documents
 python scripts/build-resumes.py --update-public
+
+# Regenerate just the Salesforce-focused version
+python scripts/build-resumes.py --role salesforce-developer --update-public
 ```
 
 `.resume-tools/` and `resume-drafts/` are ignored by Git. The current website includes the owner's approved email and phone number. Set `public_contacts` deliberately when regenerating for another profile.
 
 The generator checks that each PDF is one page and that core content extracts as text. Inspect the generated layout after changing content; Word pagination may vary by application. No ATS score is claimed: job-description matching must be assessed for the specific application.
+
+The Salesforce résumé now includes anonymized office implementations and an Overleaf-style presentation. Its downloadable `.tex` source retains template attribution. The generated PDF uses ReportLab; exact Overleaf compilation/pagination requires checking in pdfLaTeX. See [revision details](docs/salesforce-resume-revision.md). The integration résumé is being revised separately.
 
 ## GitHub Pages deployment
 

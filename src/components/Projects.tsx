@@ -1,10 +1,9 @@
 import "./Projects.css";
 import { useState } from "react";
 import { ArrowUpRight, Code2 } from "lucide-react";
-import { projects } from "../data/portfolio";
+import { projectCategories, projects } from "../data/portfolio";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
-const filters = ["All", "Salesforce", "Java", "Full-Stack", "AI & Automation"];
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
 
@@ -21,11 +20,11 @@ export default function Projects() {
           <SectionHeading
             eyebrow="05 / SELECTED WORK"
             title="Projects I'm building."
-            description="Explore Revenue Hub and ReliableJobs, their architecture and source code, alongside the applications planned next."
+            description="Explore Revenue Hub and ReliableJobs, plus planned Agentforce, MuleSoft, and combined integration projects."
           />
 
           <div className="filter-bar" aria-label="Filter projects">
-            {filters.map((filter) => (
+            {projectCategories.map((filter) => (
               <button
                 type="button"
                 key={filter}
