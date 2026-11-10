@@ -10,13 +10,17 @@ A personal portfolio presenting my Salesforce development, MuleSoft integration,
 
 The site brings together my professional background, implementation experience, technical skills, and role-specific résumés. Experience includes Apex territory-management workflows, LWC forms and quote builders, Stripe/PandaDoc/Clay/DocuSign integrations, MuleSoft APIs, Agentforce service automation, Experience Cloud access, Data Cloud mappings, and Marketing Cloud Advanced campaigns.
 
-My official role is **Associate Technical Consultant, July 2025–present**. Initial training is distinguished from Salesforce and MuleSoft implementation work beginning in December 2025. Java, Spring Boot, and full-stack skills are identified as academic experience being refreshed.
+My official role is **Associate Technical Consultant, July 2025–present**. Initial training is distinguished from Salesforce and MuleSoft implementation work beginning in December 2025. Java and Spring Boot are also demonstrated through the personal ReliableJobs project; full-stack foundations remain academic experience being refreshed.
 
-## Featured project
+## Featured projects
 
 [Salesforce Enterprise Revenue & Integration Hub](https://github.com/Kvrs16/salesforce-enterprise-revenue-hub) implements an approved-Quote request workspace with Apex services, Queueable processing, logical payment deduplication, attempt history, controlled retries, and an LWC job monitor. Its card links to source code, architecture, and setup instructions.
 
-The current baseline uses deterministic mock payment and document providers. It does not process real payments or generate provider documents; real Stripe/PandaDoc adapters are future work. The remaining Java, full-stack, and AI project cards are still planned. See [the source review and suggested next steps](docs/revenue-hub-review.md).
+The Revenue Hub baseline uses deterministic mock payment and document providers. It does not process real payments or generate provider documents; real Stripe/PandaDoc adapters are future work. See [the source review and suggested next steps](docs/revenue-hub-review.md).
+
+[ReliableJobs — Task Processing API](https://github.com/Kvrs16/reliablejobs) is a personal Java 21 / Spring Boot backend with PostgreSQL-backed job claiming, idempotent submissions, lease recovery, bounded retries, cooperative cancellation, session authentication, and owner-authorized results. Its card links to source, architecture, Windows setup, and API documentation. Maven verification on 10 November 2026 passed 4 unit tests and 22 PostgreSQL integration tests with zero failures, errors, or skips. It is a local-first backend with synthetic workloads, not a hosted API or a separate published library. See [the source review and next steps](docs/reliablejobs-review.md).
+
+The full-stack and AI project cards remain planned.
 
 ## Features
 

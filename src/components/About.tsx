@@ -20,8 +20,9 @@ export default function About() {
               <p>
                 My professional work spans Salesforce customization,
                 integrations, automation, and cloud technologies.
-                My Java, Spring Boot, and full-stack experience comes from
-                college work, and I am currently refreshing those skills.
+                I also build personal Java and Spring Boot projects, including
+                ReliableJobs, a PostgreSQL-backed task processing API.
+                My full-stack foundation comes from college work and is being refreshed.
               </p>
             </div>
 

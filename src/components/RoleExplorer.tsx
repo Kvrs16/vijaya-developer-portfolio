@@ -47,19 +47,23 @@ const roles: Role[] = [
     label: "Java & Backend",
     title: "Java & Backend Development",
     description:
-      "Academic experience in Java, Spring Boot, and backend development. Currently refreshing these foundations alongside my professional Salesforce work.",
+      "Building on academic foundations through ReliableJobs, a personal Java and Spring Boot backend with a durable PostgreSQL queue, authenticated APIs, and execution recovery.",
     skills: [
       "Java",
       "Spring Boot",
+      "PostgreSQL",
+      "Spring Security",
+      "Flyway",
+      "JUnit",
       "REST APIs",
       "SQL",
       "Object-Oriented Programming",
       "Git",
     ],
     highlights: [
-      "Academic object-oriented application design",
-      "Backend services and API development",
-      "Testing and maintainable code practices",
+      "Idempotent submissions and owner-authorized APIs",
+      "Concurrent job claiming, execution leases, and recovery",
+      "Unit and PostgreSQL integration testing",
     ],
   },
   {

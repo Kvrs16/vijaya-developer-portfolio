@@ -86,7 +86,15 @@ export const skillGroups: { title: string; context?: string; skills: string[] }[
     ]
   },
   {
-    title: "Java & Full-Stack",
+    title: "Java & Backend",
+    context: "Personal project · ReliableJobs",
+    skills: [
+      "Java 21", "Spring Boot", "PostgreSQL", "Spring Security",
+      "Spring Data JPA", "Flyway", "REST APIs", "JUnit", "Maven"
+    ]
+  },
+  {
+    title: "Full-Stack Foundations",
     context: "Academic experience · currently refreshing",
     skills: [
       "Java", "Spring Boot", "JavaScript",
@@ -123,6 +131,7 @@ export interface PortfolioProject {
   repository?: string;
   architecture?: string;
   deploymentGuide?: string;
+  apiDocumentation?: string;
 }
 
 export const projects: PortfolioProject[] = [
@@ -144,12 +153,23 @@ export const projects: PortfolioProject[] = [
     deploymentGuide: "https://github.com/Kvrs16/salesforce-enterprise-revenue-hub/blob/main/docs/deployment-guide.md"
   },
   {
-    title: "Java Backend Application",
+    title: "ReliableJobs — Task Processing API",
     category: "Java",
     description:
-      "A backend engineering project exploring RESTful services, persistence, security, and automated testing.",
-    technologies: ["Java", "Spring Boot", "SQL"],
-    status: "Planned"
+      "A Java and Spring Boot backend for submitting bounded background jobs, inspecting execution attempts, and retrieving owner-authorized results. PostgreSQL serves as the durable queue.",
+    technologies: ["Java 21", "Spring Boot", "PostgreSQL", "Spring Security", "Flyway", "JUnit"],
+    status: "Implemented backend",
+    highlights: [
+      "User-scoped idempotency keys and request fingerprints distinguish safe replays from conflicting submissions.",
+      "Database row locking, execution leases, and token fencing support concurrent claiming, bounded retries, cancellation, and stale-worker recovery.",
+      "Session authentication, CSRF protection, ownership checks, attempt history, audit events, and authenticated OpenAPI documentation support the API workflow.",
+      "Verified locally with Maven: 4 unit tests and 22 PostgreSQL integration tests passed on 10 November 2026."
+    ],
+    scope: "A local-first personal backend project with synthetic CSV-summary and record-validation jobs. No frontend or public hosted API is included; delivery is at least once, not exactly once.",
+    repository: "https://github.com/Kvrs16/reliablejobs",
+    architecture: "https://github.com/Kvrs16/reliablejobs/blob/main/docs/ARCHITECTURE.md",
+    deploymentGuide: "https://github.com/Kvrs16/reliablejobs/blob/main/docs/WINDOWS-SETUP.md",
+    apiDocumentation: "https://github.com/Kvrs16/reliablejobs/blob/main/docs/API.md"
   },
   {
     title: "Modern Full-Stack Application",

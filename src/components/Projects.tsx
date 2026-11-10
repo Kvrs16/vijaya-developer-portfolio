@@ -21,7 +21,7 @@ export default function Projects() {
           <SectionHeading
             eyebrow="05 / SELECTED WORK"
             title="Projects I'm building."
-            description="Explore the Revenue Hub implementation, its architecture, and source code, alongside the applications planned next."
+            description="Explore Revenue Hub and ReliableJobs, their architecture and source code, alongside the applications planned next."
           />
 
           <div className="filter-bar" aria-label="Filter projects">
@@ -89,6 +89,9 @@ export default function Projects() {
                       )}
                       {project.deploymentGuide && (
                         <a href={project.deploymentGuide} target="_blank" rel="noopener noreferrer">Setup guide</a>
+                      )}
+                      {project.apiDocumentation && (
+                        <a href={project.apiDocumentation} target="_blank" rel="noopener noreferrer">API documentation</a>
                       )}
                     </div>
                   )}
